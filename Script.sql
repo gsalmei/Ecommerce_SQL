@@ -90,7 +90,42 @@ ORDER BY
 LIMIT 
 	5
 
-
+-- Top 5 produtos mais vendidos por estado (usando window functions)
+	
+WITH AUX AS (
+SELECT 
+	ocd.customer_state,
+	ooid.product_id,
+	sum(ooid.price) as soma_preco, 
+	RANK () OVER(PARTITION BY ocd.customer_state ORDER BY SUM(ooid.price) DESC )
+FROM 
+	olist_orders_dataset ood 
+LEFT JOIN
+	olist_order_items_dataset ooid 
+ON
+	ood.order_id = ooid.order_id 
+LEFT JOIN 
+	olist_customers_dataset ocd 
+ON
+	ood.customer_id = ocd.customer_id 
+LEFT JOIN 
+	olist_products_dataset opd 
+ON 
+	ooid.product_id = opd.product_id 
+WHERE 
+	opd.product_category_name <> ''
+GROUP BY 
+	ocd.customer_state, ooid.product_id
+ORDER BY 
+	soma_preco DESC 
+)
+	
+SELECT 
+	*
+FROM
+	AUX
+WHERE 
+	rank = 1
 
 
 	
