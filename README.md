@@ -9,8 +9,8 @@ Neste projeto, foi utilizado o Postgres e o DBeaver.
 
 O objetivo deste estudo foi responder as perguntas de negócio abaixo, usando consultas SQL.
 
-1 - Quais os produtos mais vendidos em quantidade?
-2 - Quais os produtos com maior receita?
-3 - Quais os produtos mais vendidos por categoria em um determinado estado?
-4 - Qual o total de vendas por estado?
-5 - Quais os 5 produtos mais vendidos de cada estado?
+<br>1 - Quais os produtos mais vendidos em quantidade?</br>
+<br>2 - Quais os produtos com maior receita?</br>
+<br>3 - Quais os produtos mais vendidos por categoria em um determinado estado?</br>
+<br>4 - Qual o total de vendas por estado?</br>
+<br>5 - Quais os 5 produtos mais vendidos de cada estado?</br>
